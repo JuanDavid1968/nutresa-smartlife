@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat - Nutresa Smart Life</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="chat-container">
+    <h2>🌿 Hola {{ nombre }}!</h2>
+    <div class="score">🎯 Puntos: {{ puntos }} | 🏅 Nivel: {{ nivel }} - {{ insignia }}</div>
+
+    <div class="reto">
+      <h4>🔥 Reto del Día</h4>
+      <p>{{ reto }}</p>
+      {% if not reto_completado %}
+      <form method="POST" action="/completar_reto">
+        <button class="btn">✅ Completar Reto</button>
+      </form>
+      {% else %}
+      <p class="completado">Reto completado 🎉 ¡Excelente trabajo!</p>
+      {% endif %}
+    </div>
+
+    <div class="chat-box">
+      {% for h in historial %}
+        <div class="{{ 'user' if h['role']=='user' else 'bot' }}">
+          <b>{{ 'Tú:' if h['role']=='user' else 'NutresaBot:' }}</b> {{ h['text'] }}
+        </div>
+      {% endfor %}
+    </div>
+
+    <form method="POST" class="input-area">
+      <input type="text" name="mensaje" placeholder="Escribe tu mensaje..." required>
+      <button type="submit" class="btn">Enviar</button>
+    </form>
+  </div>
+</body>
+</html>

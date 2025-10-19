@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Nutresa Smart Life</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="inicio">
+  <div class="contenedor">
+    <h1 class="titulo fade-in">🌱 Nutresa Smart Life</h1>
+    <p class="subtitulo">Tu asistente saludable con IA</p>
+    <form method="POST" class="form-perfil">
+      <input type="text" name="nombre" placeholder="Tu nombre" required>
+      <select name="estilo" required>
+        <option value="" disabled selected>Selecciona tu estilo de vida</option>
+        <option>Estudiante</option>
+        <option>Oficinista</option>
+        <option>Deportista</option>
+        <option>Padre/Madre</option>
+        <option>Adulto Mayor</option>
+      </select>
+      <button type="submit" class="btn">Comenzar</button>
+    </form>
+  </div>
+</body>
+</html>

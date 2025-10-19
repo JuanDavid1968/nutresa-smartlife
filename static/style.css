@@ -1,0 +1,15 @@
+body { font-family: 'Arial', sans-serif; margin: 0; background: #0B3D2E; color: white; }
+.titulo { font-size: 2.5em; color: #FFD700; text-align: center; margin-top: 50px; }
+.subtitulo { text-align: center; color: #C7E8C1; }
+.fade-in { animation: fadeIn 2s ease-in; }
+@keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+.form-perfil { display: flex; flex-direction: column; align-items: center; margin-top: 30px; }
+input, select { padding: 10px; margin: 10px; border-radius: 8px; border: none; width: 250px; }
+.btn { background-color: #FFD700; color: #0B3D2E; border: none; padding: 10px 20px; border-radius: 10px; cursor: pointer; }
+.chat-container { max-width: 700px; margin: 30px auto; background: #C7E8C1; color: #0B3D2E; border-radius: 15px; padding: 20px; }
+.user, .bot { background: #fff; margin: 5px 0; padding: 10px; border-radius: 10px; }
+.user { background: #DFF0D8; }
+.bot { background: #E8EBF7; }
+.reto { background: #E0F7F1; color: #0B3D2E; padding: 15px; border-radius: 10px; margin-bottom: 10px; }
+.completado { color: green; font-weight: bold; }
+.score { margin-bottom: 10px; }
