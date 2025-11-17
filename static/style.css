@@ -1,15 +1,102 @@
-body { font-family: 'Arial', sans-serif; margin: 0; background: #0B3D2E; color: white; }
-.titulo { font-size: 2.5em; color: #FFD700; text-align: center; margin-top: 50px; }
-.subtitulo { text-align: center; color: #C7E8C1; }
-.fade-in { animation: fadeIn 2s ease-in; }
-@keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
-.form-perfil { display: flex; flex-direction: column; align-items: center; margin-top: 30px; }
-input, select { padding: 10px; margin: 10px; border-radius: 8px; border: none; width: 250px; }
-.btn { background-color: #FFD700; color: #0B3D2E; border: none; padding: 10px 20px; border-radius: 10px; cursor: pointer; }
-.chat-container { max-width: 700px; margin: 30px auto; background: #C7E8C1; color: #0B3D2E; border-radius: 15px; padding: 20px; }
-.user, .bot { background: #fff; margin: 5px 0; padding: 10px; border-radius: 10px; }
-.user { background: #DFF0D8; }
-.bot { background: #E8EBF7; }
-.reto { background: #E0F7F1; color: #0B3D2E; padding: 15px; border-radius: 10px; margin-bottom: 10px; }
-.completado { color: green; font-weight: bold; }
-.score { margin-bottom: 10px; }
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(120deg, #00b36b, #a0d468);
+    color: #333;
+    text-align: center;
+    padding: 30px;
+}
+
+.logo {
+    width: 120px;
+    margin-bottom: 15px;
+}
+
+.resaltado {
+    color: #006633;
+    font-weight: bold;
+}
+
+.botones {
+    margin-top: 25px;
+}
+
+a, button {
+    background: #006633;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    margin: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+a:hover, button:hover {
+    background: #00b36b;
+}
+
+.oculto {
+    display: none;
+}
+
+#formulario {
+    margin-top: 25px;
+    background: #ffffffaa;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input, select {
+    width: 90%;
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+#respuesta {
+    margin-top: 15px;
+    color: #004d26;
+    font-weight: bold;
+}
+
+.productos-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 25px;
+}
+
+.producto-texto {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 15px 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.producto-texto h2 {
+    margin: 0;
+    color: #2d7a2d; /* Verde Nutresa */
+}
+
+.producto-texto p {
+    margin-top: 8px;
+    font-size: 15px;
+}
+
+.btn-productos {
+    background-color: #4CAF50;
+    padding: 12px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
