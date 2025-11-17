@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Productos Saludables Nutresa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="productos">
+        <h1>🥗 Productos Saludables Nutresa</h1>
+
+        <a href="/" class="btn-volver">⬅️ Volver al inicio</a>
+
+        <div class="productos-lista">
+            {% for p in productos %}
+            <div class="producto-texto">
+                <h2>{{ p.nombre }}</h2>
+                <p>{{ p.descripcion }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
+
