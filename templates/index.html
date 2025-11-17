@@ -1,26 +1,69 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Nutresa Smart Life</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="UTF-8">
+    <title>Tu Asistente Saludable con IA – NutriAventura</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
 </head>
-<body class="inicio">
-  <div class="contenedor">
-    <h1 class="titulo fade-in">🌱 Nutresa Smart Life</h1>
-    <p class="subtitulo">Tu asistente saludable con IA</p>
-    <form method="POST" class="form-perfil">
-      <input type="text" name="nombre" placeholder="Tu nombre" required>
-      <select name="estilo" required>
-        <option value="" disabled selected>Selecciona tu estilo de vida</option>
-        <option>Estudiante</option>
-        <option>Oficinista</option>
-        <option>Deportista</option>
-        <option>Padre/Madre</option>
-        <option>Adulto Mayor</option>
-      </select>
-      <button type="submit" class="btn">Comenzar</button>
-    </form>
-  </div>
+<body>
+    <div class="inicio">
+        <img src="/static/logo_nutresa.png" alt="Nutresa" class="logo">
+        <h1>🌿 Bienvenido a <span class="resaltado">NutriAventura</span></h1>
+        <p>
+            Descubre tu camino hacia una vida más saludable con apoyo de la IA.<br>
+            Gana puntos, completa misiones y mejora tu equilibrio diario 🍎
+        </p>
+
+        <div class="botones">
+            <a href="/chat" class="btn-chat">💬 Ir al Chat Saludable</a>
+            <a href="{{ url_for('progreso') }}" class="btn-progreso">📊 Ver mi progreso</a>
+            <a href="#" onclick="mostrarFormulario()" class="btn-personalizar">⚙️ Personalizar Perfil</a>
+            <a href="/productos" class="btn-productos">🥗 Productos Saludables</a>
+
+        </div>
+
+        <div id="formulario" class="oculto">
+            <h2>🧍 Personaliza tu experiencia</h2>
+            <label>Edad:</label>
+            <input type="number" id="edad" placeholder="Ej. 25">
+            <label>Actividad física:</label>
+            <select id="actividad">
+                <option value="baja">Baja</option>
+                <option value="media">Media</option>
+                <option value="alta">Alta</option>
+            </select>
+            <label>Preferencia alimentaria:</label>
+            <select id="preferencia">
+                <option value="omnivoro">Omnívoro</option>
+                <option value="vegetariano">Vegetariano</option>
+                <option value="vegano">Vegano</option>
+            </select>
+            <button onclick="enviarDatos()">Guardar perfil ✅</button>
+            <p id="respuesta"></p>
+        </div>
+    </div>
+
+    <script>
+        function mostrarFormulario() {
+            document.getElementById("formulario").classList.toggle("oculto");
+        }
+
+        async function enviarDatos() {
+            const edad = document.getElementById("edad").value;
+            const actividad = document.getElementById("actividad").value;
+            const preferencia = document.getElementById("preferencia").value;
+
+            const respuesta = await fetch("/personalizar", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ edad, actividad, preferencia })
+            });
+
+            const data = await respuesta.json();
+            document.getElementById("respuesta").innerHTML =
+                `🌈 Aura: <b>${data.aura}</b><br>💬 ${data.mensaje}<br>🏅 Nivel: ${data.progreso.nivel}`;
+        }
+    </script>
 </body>
 </html>
